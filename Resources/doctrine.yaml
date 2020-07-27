@@ -1,0 +1,5 @@
+doctrine:
+    dbal:
+        types:
+            encrypted: Ybenhssaien\EntityEncoderBundle\Entity\Types\EncryptedType
+            encrypted_searchable: Ybenhssaien\EntityEncoderBundle\Entity\Types\SearchableEncryptedType

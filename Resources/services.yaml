@@ -1,0 +1,30 @@
+services:
+    Ybenhssaien\EntityEncoderBundle\Indexer\IndexesGenerator:
+        class: Ybenhssaien\EntityEncoderBundle\Indexer\IndexesGenerator
+
+    ybenhssaien.indexes_generator:
+        alias: Ybenhssaien\EntityEncoderBundle\Indexer\IndexesGenerator
+        public: true
+
+    Ybenhssaien\EntityEncoderBundle\Indexer\EntityLoader:
+        class: Ybenhssaien\EntityEncoderBundle\Indexer\EntityLoader
+        arguments: ['@annotations.reader']
+
+    ybenhssaien.entity_loader:
+        alias: Ybenhssaien\EntityEncoderBundle\Indexer\EntityLoader
+        public: true
+
+    Ybenhssaien\EntityEncoderBundle\Indexer\EntityIndexer:
+        class: 'Ybenhssaien\EntityEncoderBundle\Indexer\EntityIndexer'
+        arguments: ['@ybenhssaien.entity_loader', '@ybenhssaien.indexes_generator']
+
+    ybenhssaien.entity_indexer:
+        alias: Ybenhssaien\EntityEncoderBundle\Indexer\EntityIndexer
+        public: true
+
+    Ybenhssaien\EntityEncoderBundle\EventSubscriber\DoctrineListener:
+        class: Ybenhssaien\EntityEncoderBundle\EventSubscriber\DoctrineListener
+        arguments: ['@ybenhssaien.entity_indexer']
+        tags:
+            - {name: 'doctrine.event_subscriber'}
+

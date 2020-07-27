@@ -1,0 +1,27 @@
+{
+  "name": "ybenhssaien/entity-encoder-bundle",
+  "type": "library",
+  "description": "Symfony bundle to encrypt/decrypt entities properties in database and search over them in database",
+  "license": "MIT",
+  "keywords": ["encrypt", "decrypt", "encode", "decode", "entity", "property", "security", "indexer", "sensitive"],
+  "authors": [
+    {
+      "name": "Youssef BENHSSAIEN",
+      "email": "youssef.benhssaien@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "doctrine/annotations": "1.*",
+    "doctrine/orm": "2.*",
+    "symfony/dependency-injection": "4.*|5.*",
+    "symfony/http-kernel": "4.*|5.*",
+    "symfony/config": "4.*|5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ybenhssaien\\EntityEncoderBundle\\": ""
+    }
+  },
+  "minimum-stability": "stable"
+}
